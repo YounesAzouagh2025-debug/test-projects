@@ -1,0 +1,26 @@
+luxery_car = ["porsche", "ferrari", "lamborghini"]
+everyday_car = ["audi", "bmw", "mercedes"]
+starter_car = ["kia", "volvo", "citroën"]
+
+
+brand = input(f"Which brand is your car?").lower()
+
+year = int(input(f"which year was it built in?"))
+
+if (brand in luxery_car) and year >= 2005:
+    print("Predict luxery request")
+
+elif (brand in luxery_car) and year < 2005:
+    print("Predict minimal request")
+
+elif (brand in everyday_car) and year >= 2020:
+    print("Predict luxury request")
+
+elif (brand in everyday_car) and year > 2020:
+    print("Predict regular request")
+
+elif (brand in starter_car) and year >= 2020:
+    print("Predict regular request")
+
+else:
+    print("Predict minimal request")

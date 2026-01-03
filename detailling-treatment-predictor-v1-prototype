@@ -1,26 +1,35 @@
-luxery_car = ["porsche", "ferrari", "lamborghini"]
-everyday_car = ["audi", "bmw", "mercedes"]
-starter_car = ["kia", "volvo", "citroën"]
+luxery_request_count = 0
 
+print("--- Detailing Agent Activated ---")
+while True:
+    luxery_car = ["porsche", "ferrari", "lamborghini", "maserati", "aston martin"]
+    everyday_car = ["audi", "bmw", "mercedes", "volvo",]
+    starter_car = ["kia", "citroën", "hyundai", "ford", "peugeot"]
+    brand = input("which brand is your car? (or type 'exit' to quit) ")
 
-brand = input(f"Which brand is your car?").lower()
+    if brand.lower() == "exit":
+        print("Exiting Detailing Agent. Goodbye!")
+        break
 
-year = int(input(f"which year was it built in?"))
+    year = int(input("what is the manufacturing year of your car? "))
 
-if (brand in luxery_car) and year >= 2005:
-    print("Predict luxery request")
+    if (brand in luxery_car) and year >= 2005:
+        print("Predict luxery request")
+        luxery_request_count += 1
 
-elif (brand in luxery_car) and year < 2005:
-    print("Predict minimal request")
+    elif (brand in luxery_car) and year < 2005:
+        print("Predict minimal request")
 
-elif (brand in everyday_car) and year >= 2020:
-    print("Predict luxury request")
+    elif (brand in everyday_car) and year >= 2020:
+        print("Predict luxury request")
+        luxery_request_count += 1
+    elif (brand in everyday_car) and year > 2020:
+        print("Predict regular request")
 
-elif (brand in everyday_car) and year > 2020:
-    print("Predict regular request")
+    elif (brand in starter_car) and year >= 2020:
+        print("Predict regular request")
 
-elif (brand in starter_car) and year >= 2020:
-    print("Predict regular request")
+    else:
+        print("Predict minimal request")
 
-else:
-    print("Predict minimal request")
+print(f"Current session earnings for agent: ${luxery_request_count*5}")
